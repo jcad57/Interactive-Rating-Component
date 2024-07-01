@@ -1,0 +1,246 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--very-dark-blue);
+    font-family: "Overpass", sans-serif;
+    font-size: 14px;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+:root {
+    /* Color Variables */
+    --very-dark-blue: hsla(218, 11%, 8%, 100%);
+    --dark-blue: hsla(213, 19%, 18%, 100%);
+    --light-grey: hsla(216, 12%, 63%, 100%);
+    --pure-white: hsla(0, 0%, 100%, 100%);
+    --orange: hsla(25, 97%, 53%, 100%);
+
+    /* Font Size Variables */
+    --heading-large: 1.75rem;
+    --heading-medium: 0.938rem;
+    --rating-text-size: 1rem;
+    --body-text-reg: 0.938rem; 
+
+    /* Screen-specific sizes */
+    --border-radius-large: 1.875rem;
+    --border-radius-small: 0.938rem;
+
+    --padding-large: 2rem;
+    --padding-small: 1.5rem;
+
+    --rating-value-btn-padding--large: 51px; 
+    --rating-value-btn-padding--small: 42px; 
+    --rating-value-btn-gap--large: 1.1rem;
+    --rating-value-btn-gap--small:  0.938rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h2 {
+    color: white;
+    font-size: var(--heading-large);
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    width: 100%;
+    border-radius: 100vw;
+    border: none;
+    background-color: var(--orange);
+    color: black;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding-block: .75rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--pure-white);
+  color: black;
+}
+
+.app-container {
+    display: grid;
+    place-items: center;
+    height: 100svh;
+    height: 100vh;
+    margin: 0 auto;
+    /* width: 100%; */
+}
+
+.flex-container { 
+    display: flex;
+    flex-direction: column;
+    max-width: 412px;
+    padding: var(--padding-small);
+    padding-bottom: var(--padding-large);
+    background-image: radial-gradient(ellipse at top, hsla(215, 20%, 17%, 100%), hsla(215, 24%, 12%, 100%));
+    border-radius: var(--border-radius-small);
+    margin-inline: 1.5rem;
+}
+
+.star-icon {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--dark-blue);
+    width: var(--rating-value-btn-padding--small);
+    height: var(--rating-value-btn-padding--small);
+}
+
+.rating-state__heading {
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+.rating-state__text {
+    color: var(--light-grey);
+}
+
+.raiting-state__rating-values {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    gap: var(--rating-value-btn-gap--small);
+}
+
+.raiting-state__rating-values--value {
+    display: grid;
+    cursor: pointer;
+    place-items: center;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--dark-blue);
+    color: var(--light-grey);
+    font-weight: 900;
+    width: var(--rating-value-btn-padding--small);
+    height: var(--rating-value-btn-padding--small);
+}
+
+.raiting-state__rating-values--value:hover {
+  background-color: var(--orange) !important;
+  color: var(--dark-blue) !important;
+}
+
+.error-msg {
+  color: red;
+  text-align: center;
+  margin-block: .5rem;
+}
+
+/* Thank you state */
+
+.thank-you-state__container {
+    text-align: center;
+}
+
+.thank-you-icon {
+    margin-inline: auto;
+    margin-top: 0.625rem;
+    margin-bottom: 1.5rem;
+}
+
+.score-container {
+  margin-block: .75rem;
+}
+
+.thank-you-state__container--score {
+    color: var(--orange);
+    background-color: var(--dark-blue);
+    padding-inline: 1.25rem;
+    padding-block: .55rem;
+    border-radius: 100vw;
+}
+
+.thank-you-state__container--heading {
+  margin-block: 1rem;
+}
+
+.thank-you-state__container--text {
+    color: var(--light-grey);
+}
+
+@media (min-width: 25.938rem) {
+
+    body {
+        font-size: 15px;
+    }
+
+    .flex-container {
+        padding-bottom: 0;
+        padding: var(--padding-large);
+        border-radius: 30px;
+    }
+
+    .star-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .rating-state__heading {
+        margin-top: 1.875rem;
+        margin-bottom: 1rem;
+    }
+
+    .raiting-state__rating-values--value {
+        width: var(--rating-value-btn-padding--large);
+        height: var(--rating-value-btn-padding--large);
+    }
+
+    .thank-you-state__container--heading {
+      margin-bottom: .5rem;
+      margin-top: 2rem;
+    }
+}
