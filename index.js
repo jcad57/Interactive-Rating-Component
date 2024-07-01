@@ -30,7 +30,8 @@ allRatingValueElements.forEach((element) => {
 });
 
 // Handle submit function
-submitBtnElement.addEventListener("click", function () {
+submitBtnElement.addEventListener("click", function (e) {
+  e.preventDefault();
   // Check if a rating has been selected
   if (selectedRating !== undefined && selectedRating !== "null") {
     // Success
